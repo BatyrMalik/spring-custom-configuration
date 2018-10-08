@@ -1,0 +1,6 @@
+management:
+  security:
+    enabled: false
+
+customconfigs:
+  testKey: 6324234

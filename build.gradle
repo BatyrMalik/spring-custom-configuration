@@ -1,0 +1,42 @@
+plugins {
+    id 'groovy'
+    id 'org.springframework.boot' version '1.5.14.RELEASE'
+    id 'org.jetbrains.kotlin.jvm' version '1.2.51'
+    id 'org.jetbrains.kotlin.plugin.spring' version '1.2.51'
+}
+
+compileKotlin {
+    kotlinOptions {
+        freeCompilerArgs = ["-Xjsr305=strict"]
+        jvmTarget = '1.8'
+    }
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+group = 'com.batyrmalik.spring'
+description = 'Batyr Malik - Spring Manipulations'
+
+sourceCompatibility = 1.8
+
+springBoot {
+    executable = true
+    buildInfo()
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+    compile 'org.jetbrains.kotlin:kotlin-reflect'
+
+    runtime 'org.springframework.boot:spring-boot-devtools'
+
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    testCompile 'org.spockframework:spock-core:1.1-groovy-2.4'
+    testCompile 'org.spockframework:spock-spring:1.1-groovy-2.4'
+    testCompile 'net.bytebuddy:byte-buddy:1.8.13'
+}
